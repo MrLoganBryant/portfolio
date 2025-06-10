@@ -1,0 +1,183 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Typography */
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+/* Image styling */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw;
+}
+
+.section img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #4169E1;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff9900;
+  text-decoration: underline;
+}
+
+.site-title {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout container */
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #007BFF;
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* About Section */
+.about {
+  background-color: #ffffff;
+  padding: 3rem 0;
+}
+
+/* Projects Section */
+.projects {
+  background-color: #f0f0f0;
+  padding: 3rem 0;
+}
+
+/* Individual Project Cards */
+.project-card {
+  background-color: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #007BFF;
+}
+
+/* Contact Section */
+.contact {
+  background-color: #ffffff;
+  padding: 3rem 0;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+/* Section container for card layout */
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual section cards */
+.section {
+  width: 300px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  background-color: #fff;
+}
+
+.section:hover {
+  transform: scale(1.05);
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.section h3,
+.section p {
+  padding: 10px;
+  text-align: center;
+}
