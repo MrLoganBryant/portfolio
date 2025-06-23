@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <title>Logan Bryant - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="JavaScript.JS" defer></script>
 </head>
 
 <body>
 
-    <header>
+    <header id="site-header">
         <nav class="navbar">
             <h1 class="site-title">Logan Bryant</h1>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Refrences</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact Me</a></li>
+                <ul class="nav-links">
+                    <li><a href="#" data-page="portfolio.html">Home</a></li>
+                    <li><a href="#" data-page="about.html">About</a></li>
+                    <li><a href="#" data-page="projects.html">Projects</a></li>
+                    <li><a href="#" data-page="options.html">Options</a></li>
+                    <li><a href="#" data-page="contact.html">Contact Me</a></li>
+                </ul>
             </ul>
         </nav>
     </header>
@@ -31,51 +34,23 @@
     </section>
 
     <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I am a student at Castle High School class of 2026. I am working at an intership for Nextech. I am aiming for a career in cyber security. </p>
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="your-image.jpg" alt="A photo of Logan Bryant">
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I'm Logan Bryant, a passionate developer with interests in web design, AI, and building creative
+                    solutions. I enjoy exploring new technologies and sharing my work with the world.</p>
+            </div>
         </div>
     </section>
 
     <section id="projects" class="projects">
         <div class="container">
             <h2>Projects</h2>
-            <div class="section-container">
-                <div class="section">
-                    <a href="#" class="card-link">
-                        <img src="#" alt="#">
-                        <h3>Project 1</h3>
-                        <p>Description</p>
-                    </a>
-                </div>
-                <div class="section">
-                    <a href="#" class="card-link">
-                        <img src="#" alt="#">
-                        <h3>Project 2</h3>
-                        <p>Description</p>
-                    </a>
-                </div>
-                <div class="section">
-                    <a href="#" class="card-link">
-                        <img src="#" alt="Description">
-                        <h3>Project 3</h3>
-                        <p>Description</p>
-                    </a>
-                </div>
-                <div class="section">
-                    <a href="#" class="card-link">
-                        <img src="#" alt="Description">
-                        <h3>Project 4</h3>
-                        <p>Description</p>
-                    </a>
-                </div>
-                <div class="section">
-                    <a href="#" class="card-link">
-                        <img src="#" alt="Description">
-                        <h3>Project 5</h3>
-                        <p>Description</p>
-                    </a>
-                </div>
+            <div class="section-container" id="project-cards">
+                <!-- Project cards will be injected here, for easier addtion of projects-->
             </div>
         </div>
     </section>
@@ -83,7 +58,8 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2>Contact Me</h2>
-            <p>Email me at: <a href="https://mail.google.com/mail/?view=cm&to=mrloganbryant26@gmail.com" target="_blank">mrloganbryant26@gmail.com</a></p>
+            <p>Email me at: <a href="https://mail.google.com/mail/?view=cm&to=mrloganbryant26@gmail.com"
+                    target="_blank">mrloganbryant26@gmail.com</a></p>
         </div>
     </section>
 
