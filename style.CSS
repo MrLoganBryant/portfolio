@@ -12,6 +12,7 @@ body {
   background-color: #f9f9f9;
   color: #333;
   padding-top:4rem;
+  height:100%
 }
 
 /* Typography */
@@ -81,6 +82,7 @@ img {
   width: 85%;
   margin: 0 auto;
   padding: 1rem;
+  flex: 1;
 }
 
 /* Header */
@@ -378,4 +380,42 @@ footer {
   .right-image .project-text {
     order: 0 !important;
   }
+}
+.contact-page {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page label {
+  margin: 12px 0 4px;
+}
+
+.contact-page input,
+.contact-page textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-page button {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-status {
+  margin-top: 15px;
+  font-weight: bold;
 }
