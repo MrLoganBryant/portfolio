@@ -1,3 +1,46 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const settingsLink = document.querySelector('[data-page="settings"]');
+  const dropdown = document.getElementById('settings-dropdown');
+  const pageList = document.getElementById('dynamic-pages');
+  const searchResults = document.getElementById('searchResults');
+  const allNavLinks = document.querySelectorAll('.nav-links a');
+
+  // Toggle dropdown
+  settingsLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle('hidden');
+  });
+
+  // Populate Pages and Search
+  allNavLinks.forEach(link => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = link.getAttribute('href');
+    a.textContent = link.textContent;
+    li.appendChild(a);
+    pageList.appendChild(li);
+    searchResults.appendChild(li.cloneNode(true));
+  });
+
+  // Dark mode toggle
+  window.toggleDarkMode = function () {
+    document.body.classList.toggle('dark-mode');
+  };
+
+  // Dyslexic font toggle
+  window.toggleDyslexicFont = function () {
+    document.body.classList.toggle('dyslexic-font');
+  };
+
+  // Search filter
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    const value = e.target.value.toLowerCase();
+    const items = searchResults.querySelectorAll('li');
+    items.forEach(item => {
+      item.style.display = item.textContent.toLowerCase().includes(value) ? '' : 'none';
+    });
+  });
+});
 function loadProjectCards() {
     const container = document.getElementById("project-cards");
     if (!container) return;
