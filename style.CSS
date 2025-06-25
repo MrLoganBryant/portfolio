@@ -420,3 +420,27 @@ footer {
   font-weight: bold;
 }
 
+/* Ensure full height of the page */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Grid layout */
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr auto; /* content grows, footer takes only needed space */
+  min-height: 92vh;            /* full viewport height adjust for header */
+}
+
+/* Main content area */
+.content {
+  padding: 20px;
+}
+
+/* Footer styling */
+.footer {
+  background: #f0f0f0;
+  padding: 1rem;
+  text-align: center;
+}

@@ -1,46 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const settingsLink = document.querySelector('[data-page="settings"]');
-  const dropdown = document.getElementById('settings-dropdown');
-  const pageList = document.getElementById('dynamic-pages');
-  const searchResults = document.getElementById('searchResults');
-  const allNavLinks = document.querySelectorAll('.nav-links a');
-
-  // Toggle dropdown
-  settingsLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    dropdown.classList.toggle('hidden');
-  });
-
-  // Populate Pages and Search
-  allNavLinks.forEach(link => {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = link.getAttribute('href');
-    a.textContent = link.textContent;
-    li.appendChild(a);
-    pageList.appendChild(li);
-    searchResults.appendChild(li.cloneNode(true));
-  });
-
-  // Dark mode toggle
-  window.toggleDarkMode = function () {
-    document.body.classList.toggle('dark-mode');
-  };
-
-  // Dyslexic font toggle
-  window.toggleDyslexicFont = function () {
-    document.body.classList.toggle('dyslexic-font');
-  };
-
-  // Search filter
-  document.getElementById('searchInput').addEventListener('input', (e) => {
-    const value = e.target.value.toLowerCase();
-    const items = searchResults.querySelectorAll('li');
-    items.forEach(item => {
-      item.style.display = item.textContent.toLowerCase().includes(value) ? '' : 'none';
-    });
-  });
-});
 function loadProjectCards() {
     const container = document.getElementById("project-cards");
     if (!container) return;
@@ -101,7 +58,11 @@ async function loadPage(pageName) {
 
         const currentMain = document.querySelector("#main-content");
         if (currentMain) currentMain.innerHTML = newContent.innerHTML;
-
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth" // This makes the scroll animated and smooth
+        });
         handlePageSpecificRendering(pageName);
         rebindNavLinks();
     } catch (err) {
@@ -114,43 +75,43 @@ async function loadPage(pageName) {
 }
 
 function initContactForm() {
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
-  if (!form) return;
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    if (!form) return;
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    // Grab values
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
+        // Grab values
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
 
-    // Simple validation
-    if (!name || !email || !message) {
-      status.textContent = "Please fill out all fields.";
-      status.style.color = "red";
-      return;
-    }
+        // Simple validation
+        if (!name || !email || !message) {
+            status.textContent = "Please fill out all fields.";
+            status.style.color = "red";
+            return;
+        }
 
-    if (!validateEmail(email)) {
-      status.textContent = "Invalid email address.";
-      status.style.color = "red";
-      return;
-    }
+        if (!validateEmail(email)) {
+            status.textContent = "Invalid email address.";
+            status.style.color = "red";
+            return;
+        }
 
-    // Simulate success
-    status.textContent = "Message sent successfully!";
-    status.style.color = "green";
+        // Simulate success
+        status.textContent = "Message sent successfully!";
+        status.style.color = "green";
 
-    // Clear form
-    form.reset();
-  });
+        // Clear form
+        form.reset();
+    });
 }
 
 // Basic email validation
 function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 function handlePageSpecificRendering(pageName) {
