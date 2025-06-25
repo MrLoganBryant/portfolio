@@ -95,15 +95,93 @@ header h1 {
   margin-bottom: 0.5rem;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
+/* === Dropdown (Fixed Below Navbar) === */
+.settings-dropdown {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  max-height: 0;
+  background: #4169E1;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  z-index: 999;
+  overflow: hidden;
+  pointer-events: none;
+  padding: 0; /* move padding inside child */
 }
 
-nav a {
+.settings-dropdown.show {
+  max-height: 50vh;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Scrollable inner content */
+.dropdown-content {
+  padding: 2rem;
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.settings-section h3 {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.25rem;
+}
+
+.settings-section a,
+.settings-section button {
+  display: block;
+  margin-bottom: 0.5rem;
+  background: none;
+  border: 1px solid white;
   color: white;
+  padding: 0.5rem 1rem;
   text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.settings-section a:hover,
+.settings-section button:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+#settings-toggle .arrow {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+#settings-toggle.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* === Main content === */
+.page-content {
+  padding-top: 64px; /* ensure content starts below navbar */
+}
+
+
+/* === Page content placeholder === */
+.page-content {
+  margin-top: 6rem; /* space below navbar */
+  padding: 2rem;
+}
+
+/* === Accessibility Modes === */
+.dark-mode {
+  background: #111;
+  color: #eee;
+}
+
+.dyslexic-font {
+  font-family: 'OpenDyslexic', sans-serif;
 }
 
 /* Hero Section */
@@ -430,7 +508,7 @@ html, body {
 .wrapper {
   display: grid;
   grid-template-rows: 1fr auto; /* content grows, footer takes only needed space */
-  min-height: 92vh;            /* full viewport height adjust for header */
+  min-height: 93vh;            /* full viewport height adjust for header */
 }
 
 /* Main content area */

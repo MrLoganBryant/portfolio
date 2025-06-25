@@ -1,3 +1,85 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('settings-toggle');
+    const dropdown = document.getElementById('settings-dropdown');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    const pagesSection = document.getElementById('pages-section');
+
+    const pages = [
+        { name: 'Home', href: '/home' },
+        { name: 'About', href: '/about' },
+        { name: 'Projects', href: '/projects' },
+        { name: 'Contact', href: '/contact' }
+    ];
+
+    pages.forEach(p => {
+        const a = document.createElement('a');
+        a.href = p.href;
+        a.textContent = p.name;
+        pagesSection.appendChild(a.cloneNode(true));
+        searchResults.appendChild(a.cloneNode(true));
+    });
+
+    // Toggle dropdown
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('show');
+        toggle.classList.toggle('open');
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && !toggle.contains(e.target)) {
+            dropdown.classList.remove('show');
+            toggle.classList.remove('open');
+        }
+    });
+
+    // Close on link click inside dropdown
+    dropdown.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            dropdown.classList.remove('show');
+            toggle.classList.remove('open');
+        }
+    });
+
+    // Search filter
+    searchInput.addEventListener('input', () => {
+        const term = searchInput.value.toLowerCase();
+        const items = searchResults.querySelectorAll('a');
+        items.forEach(link => {
+            const match = link.textContent.toLowerCase().includes(term);
+            link.style.display = match ? 'block' : 'none';
+        });
+    });
+
+    // Accessibility
+    window.toggleDarkMode = () => {
+        document.body.classList.toggle('dark-mode');
+    };
+
+    window.toggleDyslexicFont = () => {
+        document.body.classList.toggle('dyslexic-font');
+    };
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('settings-toggle');
+    const dropdown = document.getElementById('settings-dropdown');
+    const content = document.querySelector('.page-content');
+    console.log("Dropdown:", dropdown);
+    console.log("Content:", content);
+    function adjustContentPadding() {
+        const dropdownHeight = dropdown.classList.contains('show') ? dropdown.offsetHeight : 0;
+        content.style.paddingBottom = `${dropdownHeight}px`;
+    }
+
+    toggle.addEventListener('click', () => {
+        setTimeout(adjustContentPadding, 400); // delay to match dropdown animation
+    });
+
+    window.addEventListener('resize', adjustContentPadding);
+});
+
 function loadProjectCards() {
     const container = document.getElementById("project-cards");
     if (!container) return;

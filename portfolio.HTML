@@ -14,19 +14,49 @@
     <header id="site-header">
         <nav class="navbar">
             <h1 class="site-title">Logan Bryant</h1>
-            <ul class="nav-links">
-                <li><a href="#" data-page="home">Home</a></li>
-                <li><a href="#" data-page="about">About</a></li>
-                <li><a href="#" data-page="projects">Projects</a></li>
-                <li><a href="#" data-page="contact">Contact Me</a></li>
-                <li><a href="#" data-page="settings">Settings</a></li>
-            </ul>
+            <div class="nav-links">
+                <a href="#" data-page="home">Home</a>
+                <a href="#" data-page="about">About</a>
+                <a href="#" data-page="projects">Projects</a>
+                <a href="#" data-page="contact">Contact Me</a>
+                <a href="#" id="settings-toggle">Settings <span class="arrow">&#9662;</span></a>
+            </div>
         </nav>
     </header>
+
+    <!-- Settings Dropdown -->
+    <div id="settings-dropdown" class="settings-dropdown">
+        <div class="dropdown-content">
+
+            <div class="settings-section">
+                <h3>Accessibility</h3>
+                <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+                <button onclick="toggleDyslexicFont()">Dyslexia-Friendly Font</button>
+            </div>
+
+            <div class="settings-section">
+                <h3>Contact</h3>
+                <a href="mailto:mrloganbryant26@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/YOUR_LINK" target="_blank">LinkedIn</a>
+            </div>
+
+            <div class="settings-section" id="pages-section">
+                <h3>Pages</h3>
+                <!-- Links added dynamically -->
+            </div>
+
+            <div class="settings-section full-width">
+                <h3>Search</h3>
+                <input type="text" id="searchInput" placeholder="Search titles...">
+                <div id="searchResults"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="wrapper">
 
         <main id="main-content">
-            <!-- this is what should get replaced, everything in main excudes header and footer-->
+            <!-- this is what should get replaced, everything in main exculdes header and footer-->
 
             <section class="hero">
                 <div class="container">
