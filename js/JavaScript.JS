@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('settings-toggle');
     const dropdown = document.getElementById('settings-dropdown');
-    const content = document.querySelector('.page-content');
+    const content = document.querySelector('.main-content');
     console.log("Dropdown:", dropdown);
     console.log("Content:", content);
     function adjustContentPadding() {
