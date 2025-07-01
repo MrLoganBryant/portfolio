@@ -54,10 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Accessibility
-    window.toggleDarkMode = () => {
-        document.body.classList.toggle('dark-mode');
-    };
-
     window.toggleDyslexicFont = () => {
         document.body.classList.toggle('dyslexic-font');
     };
@@ -227,3 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
     rebindNavLinks();
     handlePageSpecificRendering("home"); // or whatever initial page is preloaded
 });
+  function toggleDarkMode() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+  }
