@@ -4,13 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
     const pagesSection = document.getElementById('pages-section');
+const basePath = "/portfolio"; // <- Set your repo name here
 
-    const pages = [
-        { name: 'Home', href: '/home' },
-        { name: 'About', href: '/about' },
-        { name: 'Projects', href: '/projects' },
-        { name: 'Contact', href: '/contact' }
-    ];
+const pages = [
+  { name: 'Home', href: `${basePath}/home` },
+  { name: 'About', href: `${basePath}/about` },
+  { name: 'Projects', href: `${basePath}/projects` },
+  { name: 'Contact', href: `${basePath}/contact` }
+];
 
     pages.forEach(p => {
         const a = document.createElement('a');
