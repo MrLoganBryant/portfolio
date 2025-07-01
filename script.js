@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
     const pagesSection = document.getElementById('pages-section');
-const basePath = "/portfolio"; // <- Set your repo name here
+    const basePath = "/portfolio"; // <- Set your repo name here
 
-const pages = [
-  { name: 'Home', href: `${basePath}/home` },
-  { name: 'About', href: `${basePath}/about` },
-  { name: 'Projects', href: `${basePath}/projects` },
-  { name: 'Contact', href: `${basePath}/contact` }
-];
+    const pages = [
+        { name: 'Home', href: `${basePath}/home` },
+        { name: 'About', href: `${basePath}/about` },
+        { name: 'Projects', href: `${basePath}/projects` },
+        { name: 'Contact', href: `${basePath}/contact` }
+    ];
 
     pages.forEach(p => {
         const a = document.createElement('a');
@@ -126,7 +126,7 @@ function renderFullProjects() {
 
 async function loadPage(pageName) {
     try {
-        const res = await fetch(`/pages/${pageName}.html`);
+        const res = await fetch(`${pageName}.html`);
         if (!res.ok) throw new Error(`Failed to load ${pageName}: ${res.status}`);
 
         const html = await res.text();
@@ -224,14 +224,14 @@ document.addEventListener("DOMContentLoaded", () => {
     rebindNavLinks();
     handlePageSpecificRendering("home"); // or whatever initial page is preloaded
 });
-  function toggleDarkMode() {
+function toggleDarkMode() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
-  }
+}
 
- //for dynamic card adding 
-  const projects = [
+//for dynamic card adding 
+const projects = [
     {
         title: "Project 1",
         description: "Description of project 1",
