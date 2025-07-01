@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
   }
-  
+
  //for dynamic card adding 
   const projects = [
     {
