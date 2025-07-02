@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Accessibility
     window.toggleDyslexicFont = () => {
         document.body.classList.toggle('dyslexic-font');
+        console.log("https://opendyslexic.org/")
     };
 });
 document.addEventListener('DOMContentLoaded', () => {
