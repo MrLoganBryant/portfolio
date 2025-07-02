@@ -14,12 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     pages.forEach(p => {
-        const a = document.createElement('a');
-        a.href = p.href;
-        a.textContent = p.name;
-        pagesSection.appendChild(a.cloneNode(true));
-        searchResults.appendChild(a.cloneNode(true));
-    });
+    const a = document.createElement('a');
+    a.href = p.href;
+    a.textContent = p.name;
+    a.setAttribute('data-page', p.name.toLowerCase()); // Add this line
+    pagesSection.appendChild(a.cloneNode(true));
+    searchResults.appendChild(a.cloneNode(true));
+});
 
     // Toggle dropdown
     toggle.addEventListener('click', (e) => {
@@ -210,7 +211,7 @@ function handlePageSpecificRendering(pageName) {
 }
 
 function rebindNavLinks() {
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    document.querySelectorAll("a[data-page]").forEach(link => {
         link.addEventListener("click", e => {
             e.preventDefault();
             const page = link.dataset.page;
@@ -218,6 +219,7 @@ function rebindNavLinks() {
         });
     });
 }
+
 
 // Initial binding on page load
 document.addEventListener("DOMContentLoaded", () => {
@@ -233,22 +235,22 @@ function toggleDarkMode() {
 //for dynamic card adding 
 const projects = [
     {
-        title: "Project 1",
-        description: "Description of project 1",
-        image: "path/to/image1.jpg",
-        link: "https://example.com/project1"
+        title: "Quiz Game",
+        description: "A quiz that askes 15 questions in order to determine the best genre of book to read",
+        image: "quiz.png",
+        link: "https://mrloganbryant.github.io/int-u4-project-23-24-starter-code/"
     },
     {
-        title: "Project 2",
-        description: "Description of project 2",
-        image: "path/to/image2.jpg",
-        link: "https://example.com/project2"
+        title: "Choose Your Adventure",
+        description: "A fantasy style CYOA with the goal of escaping the forest",
+        image: "CYOA.png",
+        link: "https://mrloganbryant.github.io/int-u3-project-23-24-starter-code/"
     },
     {
-        title: "Project 3",
-        description: "Description of project 3",
-        image: "path/to/image2.jpg",
-        link: "https://example.com/project2"
+        title: "Opening Page",
+        description: "An example of an home page for a website about privacy",
+        image: "openingpage.png",
+        link: "https://mrloganbryant.github.io/int-u2-project-23-24-starter-code-2/"
     },
     // can add more projects here as needed
 ];
